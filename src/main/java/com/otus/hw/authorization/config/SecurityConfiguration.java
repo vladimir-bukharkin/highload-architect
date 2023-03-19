@@ -19,6 +19,8 @@ public class SecurityConfiguration {
                 .httpBasic(withDefaults())
                 .authorizeHttpRequests( ( authorize ) -> authorize
                         .antMatchers("/user/register").permitAll()
+                        .antMatchers("/v3/api-docs/**").permitAll()
+                        .antMatchers("/swagger-ui/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .anonymous().principal( new AnonimusUD() )

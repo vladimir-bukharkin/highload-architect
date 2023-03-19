@@ -22,7 +22,7 @@ public class UserController {
         return userService.findById(id);
     }
 
-    @GetMapping(path = "/get/", produces = "application/json")
+    @GetMapping(path = "/search/", produces = "application/json")
     public UserDto getUser(@RequestParam("first_name") String firstName, @RequestParam("second_name") String secondName) {
         return userService.findByFirstNameAndSecondName(firstName, secondName);
     }
