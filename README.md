@@ -9,7 +9,6 @@
 1. Имя
 2. Фамилия
 3. Возраст
-4. Пол
 5. Интересы
 6. Город
 
@@ -34,7 +33,7 @@ swagger-ui
 
 Запуск docker-compose
 -----------
-1. Перейти в директорию /docker
+1. Перейти в директорию /highload-architect/docker
 2. Выполнить сборку командой
   ```  
   docker-compose build
@@ -43,3 +42,8 @@ swagger-ui
   ```  
   docker-compose up
   ```
+Приложение будет запущено локально, порт: http://localhost:8089/
+
+Postman-коллекция
+-----------
+Хранится в директории: /highload-architect/postman

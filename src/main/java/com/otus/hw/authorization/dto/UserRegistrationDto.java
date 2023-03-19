@@ -15,6 +15,8 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserRegistrationDto {
 
+    String id;
+
     @NotNull
     @NotEmpty
     @JsonProperty("first_name")

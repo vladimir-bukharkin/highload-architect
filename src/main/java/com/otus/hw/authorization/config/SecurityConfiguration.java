@@ -18,7 +18,8 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .httpBasic(withDefaults())
                 .authorizeHttpRequests( ( authorize ) -> authorize
-                        .antMatchers("/user/register").permitAll()
+                        .antMatchers("/user/register/**").permitAll()
+                        .antMatchers("/user/login/**").permitAll()
                         .antMatchers("/v3/api-docs/**").permitAll()
                         .antMatchers("/swagger-ui/**").permitAll()
                         .anyRequest().authenticated()
@@ -28,7 +29,10 @@ public class SecurityConfiguration {
                 .rememberMe().key("AnySecret").tokenValiditySeconds(60 * 30)
                 .and()
                 .formLogin()
-                .usernameParameter("id");
+                .usernameParameter("id")
+                .and()
+                .logout()
+                .deleteCookies("JSESSIONID");
         return http.build();
     }
 

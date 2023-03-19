@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "4970819c-124d-41c3-b292-4e6d3915af13",
+		"name": "HW1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1755393"
+	},
+	"item": [
+		{
+			"name": "Registrate User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"birthday\": \"2023-03-18\",\r\n    \"biography\": \"biography\",\r\n    \"city\": \"city\",\r\n    \"password\": \"password\",\r\n    \"first_name\": \"firstName\",\r\n    \"second_name\": \"secondName\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorize User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "440bf8a9-7cda-4021-afcf-8c8f721cafff",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "440bf8a9-7cda-4021-afcf-8c8f721cafff",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8089/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/get/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "e70110dc-4deb-4491-81a3-c29f51138f3a",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/user/get/e70110dc-4deb-4491-81a3-c29f51138f3a",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"get",
+						"e70110dc-4deb-4491-81a3-c29f51138f3a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/search",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "e70110dc-4deb-4491-81a3-c29f51138f3a",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/user/search/?first_name=firstName&second_name=secondName",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "first_name",
+							"value": "firstName"
+						},
+						{
+							"key": "second_name",
+							"value": "secondName"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
