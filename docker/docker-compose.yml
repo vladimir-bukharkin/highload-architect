@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  app:
+    image: 'highload-architect-hw01:latest'
+    build:
+      context: .
+    container_name: app
+    ports:
+      - "8089:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - spring_liquibase_change-log=classpath:db/changelog/db.changelog-master.xml
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
